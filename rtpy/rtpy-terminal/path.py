@@ -1,6 +1,9 @@
-from . import talking, bash_history_paths, namespace
+import warnings
 from Redy.Tools.PathLib import Path
-from .simple_analyze import to_vec, corr
+from . import talking
+from .auto_jump_analyze import rtpy_history_cached_file, rtpy_history_rank_file
+# noinspection PyPackageRequirements
+from linq import Flow as seq
 import os
 
 
@@ -27,7 +30,11 @@ def ls(partial: str):
 
 @talking
 def cd(pattern: str):
-    return os.chdir(str(Path(pattern)))
+    path_str = str(Path(pattern))
+    rtpy_history_cached_file.writeline(path_str)
+    rtpy_history_rank_file.writeline(path_str)
+
+    return os.chdir(path_str)
 
 
 @cd.completer
@@ -54,3 +61,24 @@ def cd(partial: str):
 @talking
 def echo(*pattern):
     return ' '.join(map(str, pattern))
+
+
+# noinspection PyProtectedMember
+@talking.alias('j')
+def jump(*pattern):
+    text = ' '.join(pattern)
+    correlation_asoc_lst = tuple(rtpy_history_cached_file.corr_with(text).items())
+    the_best_ten = seq(correlation_asoc_lst).sorted(lambda _: -_[1]).take(10).map(lambda _: _[0])._
+
+    for line in the_best_ten:
+        if line in rtpy_history_rank_file:
+            return line
+    warnings.warn("Not enough information to jump!")
+    return str(Path('./'))
+
+
+@jump.exiter
+def jump():
+    print('dumping')
+    rtpy_history_cached_file.dump()
+    rtpy_history_rank_file.dump()

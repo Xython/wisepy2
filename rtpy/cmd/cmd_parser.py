@@ -43,7 +43,7 @@ pattern := R'[^`\s]+'
     """)
 
     with Path(__file__).parent().into('_cmd_parser.py').open('w') as file_io:
-        file_io.write(ze_exp._lang.dumps())
+        file_io.writeline(ze_exp._lang.dumps())
 
     from ._cmd_parser import ulang
 

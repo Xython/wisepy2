@@ -1,17 +1,17 @@
-from functools import reduce
-
-import typing
-
 from rtpy.cmd.fn_describe import describe
 from rtpy.cmd.dynamic_cast import dynamic_cast
 from rtpy.cmd.cmd_parser import parse
 from rtpy.cmd.cmd_ast import Quote, Cmd, Pipeline
 from rtpy.cmd.color import Red, Green, Blue, Yellow, Purple, LightBlue
-import readline
 import types
 import io
 from Redy.Tools.PathLib import Path
 from pprint import pprint
+
+try:
+    import readline
+except:
+    import pyreadline as readline
 
 
 # TODO: remove this Pipe class. it's not a good abstraction.
@@ -39,6 +39,7 @@ class Component:
         self.help_doc = help_doc
         self._complete = None
         self._display = None
+        self._exit = None
 
     def __call__(self, *args, **kwargs):
         return dynamic_cast(self.fn)(*args, **kwargs)
@@ -49,6 +50,10 @@ class Component:
 
     def displayer(self, func):
         self._display = func
+        return self
+
+    def exiter(self, func):
+        self._exit = func
         return self
 
     def complete(self, partial):
@@ -65,8 +70,12 @@ class Component:
             return
         self._display(result)
 
+    def exit(self):
+        if self._exit:
+            self._exit()
 
-def _generate_options(_registered_cmds: dict, partial: str, state: int):
+
+def _generate_options(_registered_cmds: dict, partial: str):
     line = readline.get_line_buffer()
     option: Component = next((com for cmd_name, com in _registered_cmds.items() if line.startswith(cmd_name)), None)
     if option:
@@ -97,13 +106,17 @@ class Talking:
         return _inner
 
     def completer(self, partial: str, state):
-        options = tuple(option for option in _generate_options(self._registered_cmds, partial, state) if
-                        option.startswith(partial))
+        options = tuple(
+                option for option in _generate_options(self._registered_cmds, partial) if option.startswith(partial))
 
         if state < len(options):
             return options[state]
         else:
             state -= 1
+
+    def exit(self):
+        for each in self._registered_cmds.values():
+            each.exit()
 
     def process(self, inp):
         if isinstance(inp, Pipeline):
@@ -173,13 +186,16 @@ class Talking:
         readline.parse_and_bind("tab: complete")
         readline.set_completer(self.completer)
         readline.set_completer_delims(' \t\n;/')
-        while True:
-            print('wd: ', Green(Path('.')))
+        try:
+            while True:
+                print('wd: ', Green(Path('.')))
 
-            cmd = input('rush> ')
+                cmd = input('rush> ')
 
-            if cmd == 'exit':
+                if cmd == 'exit':
+                    raise SystemExit
 
-                break
-
-            self.from_text(cmd)
+                self.from_text(cmd)
+        except (SystemExit, KeyboardInterrupt):
+            print('exiting...')
+            self.exit()
