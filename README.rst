@@ -131,7 +131,7 @@ And ``autojump`` is very easy to implement, too.
 -  Auto Jump
 
    See `autojump in
-   rtpy-terminal <https://github.com/thautwarm/rtpy/blob/master/rtpy/rtpy-terminal/path.py>`__.
+   rtpy-terminal <https://github.com/thautwarm/rtpy/blob/master/rtpy/_terminal/path.py>`__.
 
 |autojump|
 
@@ -145,6 +145,6 @@ Welcome to
 -  Make interesting and powerful commands to ``rbnf/_terminal``.
 
 .. |terminal_demo| image:: https://github.com/thautwarm/rtpy/blob/master/terminal_demo.jpg
-   :target: https://github.com/thautwarm/rtpy/blob/master/terminal_demo.jpg
+    :target: https://github.com/thautwarm/rtpy/blob/master/terminal_demo.jpg
 .. |autojump| image:: https://github.com/thautwarm/rtpy/blob/master/auto_jump.jpg
-   :target: https://github.com/thautwarm/rtpy/blob/master/auto_jump.jpg
+    :target: https://github.com/thautwarm/rtpy/blob/master/auto_jump.jpg

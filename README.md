@@ -99,12 +99,11 @@ Fast Terminal
 
 You can see the codes at `rtpy/_terminal`, I have just implemented full featured `ls`, `cd`, `echo`, pipe-operator and quote expression.
 
-
 [![terminal_demo](https://github.com/thautwarm/rtpy/blob/master/terminal_demo.jpg)](https://github.com/thautwarm/rtpy/blob/master/terminal_demo.jpg)
 
 The implementations are so trivial:
 
-See `rtpy.terminal.path`:
+See `rtpy._terminal.path`:
 
 ```python
 
@@ -131,7 +130,7 @@ And `autojump` is very easy to implement, too.
 
 - Auto Jump
 
-    See [autojump in rtpy-terminal](https://github.com/thautwarm/rtpy/blob/master/rtpy/rtpy-terminal/path.py).
+    See [autojump in rtpy-terminal](https://github.com/thautwarm/rtpy/blob/master/rtpy/_terminal/path.py).
 
 [![autojump](https://github.com/thautwarm/rtpy/blob/master/auto_jump.jpg)](https://github.com/thautwarm/rtpy/blob/master/auto_jump.jpg)
 
