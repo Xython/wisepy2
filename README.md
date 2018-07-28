@@ -12,6 +12,7 @@ As New Argument Parser
 
 
 ```python
+
 from rtpy.cmd.talking import Talking
 
 talking = Talking()
@@ -32,7 +33,7 @@ if __name__ == '__main__':
 And then use this python script:
 
 ```shell
-cmd> python add --help # not only `cmd`, just support all terminal.
+cmd> python add --help # not only `cmd`, support all terminal as well.
 
 add
 - left(positional or keyword arg)
@@ -69,7 +70,7 @@ def another(*args, to_float: bool = False, double=None, additional_add: int = No
 
 See terminal:
 
-```
+```shell
 cmd> python demo.py sum --help
 
 sum
