@@ -97,7 +97,7 @@ See terminal:
 Fast Terminal
 -------------
 
-You can see the codes at ``rtpy/rtpy-terminal``, I have just implemented
+You can see the codes at ``rtpy/_terminal``, I have just implemented
 full featured ``ls``, ``cd``, ``echo``, pipe-operator and quote
 expression.
 
@@ -142,7 +142,7 @@ Welcome to
 
 -  Report issues about API/Plugin System designing.
 
--  Make interesting and powerful commands to ``rbnf-terminal``.
+-  Make interesting and powerful commands to ``rbnf/_terminal``.
 
 .. |terminal_demo| image:: https://github.com/thautwarm/rtpy/blob/master/terminal_demo.jpg
    :target: https://github.com/thautwarm/rtpy/blob/master/terminal_demo.jpg

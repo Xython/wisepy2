@@ -20,7 +20,7 @@ setup(name='rtpy',
       author_email='twshere@outlook.com',
       include_package_data=True,
       install_requires=['Redy', 'rbnf', 'readline', 'linq-t'],
-      packages=['rtpy.cmd', 'rtpy.weapon', 'rtpy.terminal', 'rtpyrc.terminal.private'],
+      packages=['rtpy.cmd', 'rtpy.weapon', 'rtpy._terminal'],
       platforms='any',
       classifiers=[
           'Programming Language :: Python :: 3.6',

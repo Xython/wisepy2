@@ -97,7 +97,7 @@ cmd> python demo.py sum 1 2 3 --double --to_float --additional_add 5
 Fast Terminal
 ------------------------
 
-You can see the codes at `rtpy/rtpy-terminal`, I have just implemented full featured `ls`, `cd`, `echo`, pipe-operator and quote expression.
+You can see the codes at `rtpy/_terminal`, I have just implemented full featured `ls`, `cd`, `echo`, pipe-operator and quote expression.
 
 
 [![terminal_demo](https://github.com/thautwarm/rtpy/blob/master/terminal_demo.jpg)](https://github.com/thautwarm/rtpy/blob/master/terminal_demo.jpg)
@@ -143,7 +143,7 @@ Welcome to
 
 - Report issues about API/Plugin System designing.
 
-- Make interesting and powerful commands to `rbnf-terminal`.
+- Make interesting and powerful commands to `rbnf/_terminal`.
 
 
 

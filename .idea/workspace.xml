@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ee5c2790-3973-4d5a-92d5-655f40975fba" name="Default" comment="" />
+    <list default="true" id="ee5c2790-3973-4d5a-92d5-655f40975fba" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.rst" beforeDir="false" afterPath="$PROJECT_DIR$/README.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next_version" beforeDir="false" afterPath="$PROJECT_DIR$/next_version" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rtpy/rtpy-terminal/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/rtpy/_terminal/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rtpy/rtpy-terminal/auto_jump_analyze.py" beforeDir="false" afterPath="$PROJECT_DIR$/rtpy/_terminal/auto_jump_analyze.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rtpy/rtpy-terminal/path.py" beforeDir="false" afterPath="$PROJECT_DIR$/rtpy/_terminal/path.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rtpy/rtpy-terminal/wd_history" beforeDir="false" afterPath="$PROJECT_DIR$/rtpy/_terminal/wd_history" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rtpy/rtpy-terminal/wd_ranks" beforeDir="false" afterPath="$PROJECT_DIR$/rtpy/_terminal/wd_ranks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rtpy/terminal.py" beforeDir="false" afterPath="$PROJECT_DIR$/rtpy/terminal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,7 +51,7 @@
         <entry file="file://$PROJECT_DIR$/rtpy/cmd/talking.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
-              <caret line="28" column="30" lean-forward="true" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+              <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -57,10 +69,10 @@
         </entry>
       </file>
       <file leaf-file-name="path.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rtpy/rtpy-terminal/path.py">
+        <entry file="file://$PROJECT_DIR$/rtpy/_terminal/path.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="399">
-              <caret line="73" column="42" lean-forward="true" selection-start-line="73" selection-start-column="42" selection-end-line="73" selection-end-column="42" />
+              <caret line="73" column="42" selection-start-line="73" selection-start-column="42" selection-end-line="73" selection-end-column="42" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -71,8 +83,8 @@
       <file leaf-file-name="setup.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="59" selection-start-line="21" selection-start-column="59" selection-end-line="21" selection-end-column="59" />
+            <state relative-caret-position="330">
+              <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -81,7 +93,7 @@
         </entry>
       </file>
       <file leaf-file-name="wd_ranks" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rtpy/rtpy-terminal/wd_ranks">
+        <entry file="file://$PROJECT_DIR$/rtpy/_terminal/wd_ranks">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="15">
               <caret line="1" selection-start-line="1" selection-end-line="1" />
@@ -90,7 +102,7 @@
         </entry>
       </file>
       <file leaf-file-name="wd_history" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rtpy/rtpy-terminal/wd_history">
+        <entry file="file://$PROJECT_DIR$/rtpy/_terminal/wd_history">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="15">
               <caret line="1" selection-start-line="1" selection-end-line="1" />
@@ -101,8 +113,8 @@
       <file leaf-file-name="terminal.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rtpy/terminal.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="225">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -110,12 +122,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="375">
-                <caret line="135" column="64" lean-forward="true" selection-start-line="135" selection-start-column="64" selection-end-line="135" selection-end-column="64" />
+              <first_editor relative-caret-position="195">
+                <caret line="127" selection-start-line="127" selection-end-line="127" />
               </first_editor>
               <second_editor>
                 <markdownNavigatorState />
@@ -124,11 +136,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.rst" pinned="false" current-in-tab="false">
+      <file leaf-file-name="README.rst" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="146" column="12" lean-forward="true" selection-start-line="146" selection-start-column="12" selection-end-line="146" selection-end-column="12" />
+            <state relative-caret-position="1545">
+              <caret line="103" column="9" selection-start-line="103" selection-start-column="9" selection-end-line="103" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -189,13 +201,13 @@
         <option value="$PROJECT_DIR$/rtpy/terminal/__init__.py" />
         <option value="$PROJECT_DIR$/rtpy/terminal/auto_jump_analyze.py" />
         <option value="$PROJECT_DIR$/rtpy/terminal/path.py" />
-        <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/terminal_demo.py" />
         <option value="$PROJECT_DIR$/rtpy/cmd/talking.py" />
-        <option value="$PROJECT_DIR$/rtpy/terminal.py" />
         <option value="$PROJECT_DIR$/rtpy/rtpy-terminal/path.py" />
-        <option value="$PROJECT_DIR$/README.rst" />
+        <option value="$PROJECT_DIR$/rtpy/terminal.py" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/setup.py" />
+        <option value="$PROJECT_DIR$/README.rst" />
       </list>
     </option>
   </component>
@@ -237,12 +249,6 @@
               <item name="rtpy" type="462c0819:PsiDirectoryNode" />
               <item name="rtpy" type="462c0819:PsiDirectoryNode" />
               <item name="cmd" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="rtpy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="rtpy" type="462c0819:PsiDirectoryNode" />
-              <item name="rtpy" type="462c0819:PsiDirectoryNode" />
-              <item name="rtpy-terminal" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="rtpy" type="b2602c69:ProjectViewProjectNode" />
@@ -516,7 +522,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rtpy/rtpy-terminal/path.py">
+    <entry file="file://$PROJECT_DIR$/rtpy/_terminal/path.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
@@ -723,7 +729,7 @@
     <entry file="file://$PROJECT_DIR$/terminal_demo.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/rtpy/rtpy-terminal/__init__.py">
+    <entry file="file://$PROJECT_DIR$/rtpy/_terminal/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="639">
           <caret line="53" selection-start-line="51" selection-start-column="12" selection-end-line="53" />
@@ -733,7 +739,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rtpy/rtpy-terminal/auto_jump_analyze.py">
+    <entry file="file://$PROJECT_DIR$/rtpy/_terminal/auto_jump_analyze.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
@@ -743,7 +749,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rtpy/rtpy-terminal/wd_ranks">
+    <entry file="file://$PROJECT_DIR$/rtpy/_terminal/wd_ranks">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" selection-start-line="1" selection-end-line="1" />
@@ -760,20 +766,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="59" selection-start-line="21" selection-start-column="59" selection-end-line="21" selection-end-column="59" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rtpy/cmd/talking.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
-          <caret line="28" column="30" lean-forward="true" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+          <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
@@ -787,49 +783,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rtpy/terminal.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rtpy/rtpy-terminal/path.py">
+    <entry file="file://$PROJECT_DIR$/rtpy/_terminal/path.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
-          <caret line="73" column="42" lean-forward="true" selection-start-line="73" selection-start-column="42" selection-end-line="73" selection-end-column="42" />
+          <caret line="73" column="42" selection-start-line="73" selection-start-column="42" selection-end-line="73" selection-end-column="42" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.rst">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="146" column="12" lean-forward="true" selection-start-line="146" selection-start-column="12" selection-end-line="146" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rtpy/rtpy-terminal/wd_history">
+    <entry file="file://$PROJECT_DIR$/rtpy/_terminal/wd_history">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/rtpy/terminal.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="375">
-            <caret line="135" column="64" lean-forward="true" selection-start-line="135" selection-start-column="64" selection-end-line="135" selection-end-column="64" />
+          <first_editor relative-caret-position="195">
+            <caret line="127" selection-start-line="127" selection-end-line="127" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
           </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.rst">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1545">
+          <caret line="103" column="9" selection-start-line="103" selection-start-column="9" selection-end-line="103" selection-end-column="9" />
         </state>
       </provider>
     </entry>
