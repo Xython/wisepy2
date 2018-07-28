@@ -5,9 +5,36 @@ RTPY is an intuitive and effective CLI framework which is scalable and
 practical.
 
 The most common use case might be an alternative of Python's
-``argparser``, however it's so easy for RTPY user to extend shell
-commands.(\ **For example, I just implemented ``autojump`` in 2 hours
-and a half. I spent so long for I'm so sleepy in the mid-night :)**)
+``argparser``.
+
+however it's natural for RTPY users to extend shell commands.(\ **For
+example, I just implemented ``autojump`` in 2 hours and a half. I spent
+so long for I'm so sleepy in the mid-night :)**)
+
+Install & Run Rush
+------------------
+
+::
+
+    pip install -U Redy rbnf rtpy
+
+Additionally, **RUSH** is a terminal implemented by ``rtpy`` which
+currently supports some \*NIX commands like ``cd``, ``ls``, ``echo``,
+and some interesting plugins written in pure **rtpy** api like
+``autojump``. After installing ``rtpy``, you can try **RUSH** by typing
+``rush``.
+
+.. code:: shell
+
+
+    [ruiko@localhost rtpy]$ rush
+    wd:  /home/ruiko/rtpy
+    rush> ls --help
+    ls
+    - suffix(positional or keyword arg) = None :  a filename suffix to apply filtering. default to perform no filtering.
+    - r(keyword only) = False                  : is recursive
+
+    wd:  /home/ruiko/rtpy
 
 As New Argument Parser
 ----------------------
@@ -105,7 +132,7 @@ expression.
 
 The implementations are so trivial:
 
-See ``rtpy.terminal.path``:
+See ``rtpy._terminal.path``:
 
 .. code:: python
 
@@ -145,6 +172,6 @@ Welcome to
 -  Make interesting and powerful commands to ``rbnf/_terminal``.
 
 .. |terminal_demo| image:: https://github.com/thautwarm/rtpy/blob/master/terminal_demo.jpg
-    :target: https://github.com/thautwarm/rtpy/blob/master/terminal_demo.jpg
+   :target: https://github.com/thautwarm/rtpy/blob/master/terminal_demo.jpg
 .. |autojump| image:: https://github.com/thautwarm/rtpy/blob/master/auto_jump.jpg
-    :target: https://github.com/thautwarm/rtpy/blob/master/auto_jump.jpg
+   :target: https://github.com/thautwarm/rtpy/blob/master/auto_jump.jpg

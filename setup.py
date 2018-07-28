@@ -9,27 +9,28 @@ with open(version_filename) as f:
     version = Version(f.read().strip())
 
 # @formatter:off
-setup(name='rtpy',
-      version=str(version),
-      keywords='CLI solution',
-      description="effective and intuitive CLI framework",
-      long_description=readme,
-      license='MIT',
-      url='https://github.com/thautwarm/rtpy',
-      author='thautwarm',
-      author_email='twshere@outlook.com',
-      include_package_data=True,
-      install_requires=['Redy', 'rbnf', 'readline', 'linq-t'],
-      packages=['rtpy.cmd', 'rtpy.weapon', 'rtpy._terminal'],
-      platforms='any',
-      classifiers=[
-          'Programming Language :: Python :: 3.6',
-          'Programming Language :: Python :: 3.7',
-          'Programming Language :: Python :: Implementation :: CPython'],
-      zip_safe=False
-      )
+setup(
+    name='rtpy',
+    version=str(version),
+    keywords='CLI solution',
+    description="effective and intuitive CLI framework",
+    long_description=readme,
+    license='MIT',
+    url='https://github.com/thautwarm/rtpy',
+    author='thautwarm',
+    author_email='twshere@outlook.com',
+    include_package_data=True,
+    install_requires=['Redy', 'rbnf', 'readline', 'linq-t'],
+    packages=['rtpy.cmd', 'rtpy.weapon', 'rtpy._terminal', 'rtpy'],
+    entry_points={'console_scripts': ['rush=rtpy.terminal:main']},
+    platforms='any',
+    classifiers=[
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: Implementation :: CPython'
+    ],
+    zip_safe=False)
 # @formatter:on
-
 
 version.increment(version_number_idx=2, increment=1)
 if version[2] is 42:
