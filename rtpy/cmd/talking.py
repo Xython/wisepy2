@@ -14,24 +14,6 @@ except:
     import pyreadline as readline
 
 
-# TODO: remove this Pipe class. it's not a good abstraction.
-class Pipe:
-    empty: 'Pipe'
-
-    def __init__(self, com, call):
-        self.com: Component = com
-        self.call = call
-
-    def display(self):
-        self.com.display(self.call(None))
-
-    def get(self, arg=None):
-        return self.call(arg)
-
-
-Pipe.empty = Pipe(None, lambda this: ())
-
-
 class Component:
     def __init__(self, fn, name, help_doc):
         self.fn: types.FunctionType = fn  # original function
@@ -89,6 +71,7 @@ class Talking:
 
     def __init__(self):
         self._registered_cmds = {}
+        self._current_com = None
 
     @property
     def registered_cmds(self):
@@ -125,37 +108,33 @@ class Talking:
             return self.process_cmd(inp)
         raise TypeError(type(inp))
 
-    def process_pipeline(self, pipeline: Pipeline) -> Pipe:
-        piped = Pipe.empty
+    def process_pipeline(self, pipeline: Pipeline):
+        piped = None
 
         # assert len(pipeline.cmds) > 1
 
-        def _reduce(_pipe, _piped):
-            return lambda _: _pipe.get(_piped.get())(_pipe, _piped)
-
         for each in pipeline.cmds:
-            pipe = self.process(each)
-            piped = Pipe(pipe.com, _reduce(pipe, piped))
+            piped = self.process(each)(piped)
 
-        return piped
+        return lambda arg=None: piped
 
-    def process_cmd(self, command: Cmd) -> Pipe:
+    def process_cmd(self, command: Cmd):
         instruction, args, kwargs = command.inst, command.args, command.kwargs
         instruction = self.visit_arg(instruction)
 
-        com: Component = self._registered_cmds.get(instruction)
+        self._current_com = com = self._registered_cmds.get(instruction)
 
         if not com:
             raise ValueError(f'No function registered/aliased as `{instruction}`.', UserWarning)
 
         if kwargs and any(True for k, _ in kwargs if k == 'help'):
-            return Pipe(com, lambda this: com.help_doc)
+            return lambda this=None: com.help_doc
 
         args = map(self.visit_arg, args) if args else ()
         kwargs = {k: v for k, v in kwargs} if kwargs else {}
 
         try:
-            return Pipe(com, lambda this: com(this, *args, **kwargs) if this else com(*args, **kwargs))
+            return lambda this=None: com(this, *args, **kwargs) if this else com(*args, **kwargs)
         except Exception as e:
             print(com.help_doc)
             raise e
@@ -165,22 +144,23 @@ class Talking:
             pat = pat.cmd
 
             if isinstance(pat, Cmd):
-                return self.process_cmd(pat).get()
+                return self.process_cmd(pat)()
 
             elif isinstance(pat, Pipeline):
-                return self.process_pipeline(pat).get()
+                return self.process_pipeline(pat)
 
-            else:
-                raise TypeError(type(pat))
+            raise TypeError(type(pat))
 
         if isinstance(pat, str):
             return pat
 
     def from_io(self, ios: io.BufferedReader):
-        self.process(parse(ios.read())).display()
+        result = self.process(parse(ios.read()))()
+        self._current_com.display(result)
 
     def from_text(self, text):
-        self.process(parse(text)).display()
+        result = self.process(parse(text))()
+        self._current_com.display(result)
 
     def listen(self):
         readline.parse_and_bind("tab: complete")

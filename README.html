@@ -366,7 +366,9 @@ ul.auto-toc {
 <p>RTPY is an intuitive and effective CLI framework which is scalable and
 practical.</p>
 <p>The most common use case might be an alternative of Python's
-<tt class="docutils literal">argparser</tt>:</p>
+<tt class="docutils literal">argparser</tt>, however it's so easy for RTPY user to extend shell
+commands.(<strong>For example, I just implemented ``autojump`` in 2 hours
+and a half. I spent so long for I'm so sleepy in the mid-night :)</strong>)</p>
 <div class="section" id="as-new-argument-parser">
 <h1>As New Argument Parser</h1>
 <pre class="code python literal-block">
@@ -389,7 +391,7 @@ practical.</p>
 </pre>
 <p>And then use this python script:</p>
 <pre class="code shell literal-block">
-cmd&gt; python add --help <span class="comment single"># not only `cmd`, just support all terminal.
+cmd&gt; python add --help <span class="comment single"># not only `cmd`, support all terminal as well.
 </span>
 add
 - left<span class="operator">(</span>positional or keyword arg<span class="operator">)</span>
@@ -421,34 +423,35 @@ with any kinds of parameter signatures into terminal command.</p>
 
     <span class="keyword">return</span> <span class="name">ret</span>
 </pre>
-<p>See terminal's behaviours:</p>
-<pre class="literal-block">
+<p>See terminal:</p>
+<pre class="code shell literal-block">
 cmd&gt; python demo.py sum --help
 
 sum
-- args(*args)
-- to_float(keyword only) = False      : &lt;class 'bool'&gt;
-- double(keyword only) = None
-- additional_add(keyword only) = None : specify some number to accumulate with at the final result
+- args<span class="operator">(</span>*args<span class="operator">)</span>
+- to_float<span class="operator">(</span>keyword only<span class="operator">)</span> <span class="operator">=</span> False      : &lt;class <span class="literal string single">'bool'</span>&gt;
+- double<span class="operator">(</span>keyword only<span class="operator">)</span> <span class="operator">=</span> None
+- additional_add<span class="operator">(</span>keyword only<span class="operator">)</span> <span class="operator">=</span> None : specify some number to accumulate with at the final result
 
-cmd&gt; python demo.py sum 1 2 3
+cmd&gt; python demo.py sum <span class="literal number">1</span> <span class="literal number">2</span> <span class="literal number">3</span>
 
-6
+<span class="literal number">6</span>
 
-cmd&gt; python demo.py sum 1 2 3 --double
+cmd&gt; python demo.py sum <span class="literal number">1</span> <span class="literal number">2</span> <span class="literal number">3</span> --double
 
-12
+<span class="literal number">12</span>
 
-cmd&gt; python demo.py sum 1 2 3 --double --to_float --additional_add 5
+cmd&gt; python demo.py sum <span class="literal number">1</span> <span class="literal number">2</span> <span class="literal number">3</span> --double --to_float --additional_add <span class="literal number">5</span>
 
-17.0
+<span class="literal number">17</span>.0
 </pre>
 </div>
 <div class="section" id="fast-terminal">
 <h1>Fast Terminal</h1>
-<p>You can see the codes at <tt class="docutils literal">rtpy.terminal</tt>, I have just implemented full
-featured <tt class="docutils literal">ls</tt>, <tt class="docutils literal">cd</tt>, <tt class="docutils literal">echo</tt>, pipe-operator and quote expression.</p>
-<p><a class="reference external" href="./terminal_demo.jpg"><img alt="terminal_demo" src="./terminal_demo.jpg" /></a></p>
+<p>You can see the codes at <tt class="docutils literal"><span class="pre">rtpy/rtpy-terminal</span></tt>, I have just implemented
+full featured <tt class="docutils literal">ls</tt>, <tt class="docutils literal">cd</tt>, <tt class="docutils literal">echo</tt>, pipe-operator and quote
+expression.</p>
+<p><a class="reference external" href="https://github.com/thautwarm/rtpy/blob/master/terminal_demo.jpg"><img alt="terminal_demo" src="https://github.com/thautwarm/rtpy/blob/master/terminal_demo.jpg" /></a></p>
 <p>The implementations are so trivial:</p>
 <p>See <tt class="docutils literal">rtpy.terminal.path</tt>:</p>
 <pre class="code python literal-block">
@@ -469,13 +472,20 @@ featured <tt class="docutils literal">ls</tt>, <tt class="docutils literal">cd</
     <span class="keyword">return</span> <span class="name">os</span><span class="operator">.</span><span class="name">chdir</span><span class="punctuation">(</span><span class="name builtin">str</span><span class="punctuation">(</span><span class="name">Path</span><span class="punctuation">(</span><span class="name">pattern</span><span class="punctuation">)))</span>
 </pre>
 <p>And <tt class="docutils literal">autojump</tt> is very easy to implement, too.</p>
+<ul>
+<li><p class="first">Auto Jump</p>
+<p>See <a class="reference external" href="https://github.com/thautwarm/rtpy/blob/master/rtpy/rtpy-terminal/path.py">autojump in
+rtpy-terminal</a>.</p>
+</li>
+</ul>
+<p><a class="reference external" href="https://github.com/thautwarm/rtpy/blob/master/auto_jump.jpg"><img alt="autojump" src="https://github.com/thautwarm/rtpy/blob/master/auto_jump.jpg" /></a></p>
 </div>
 <div class="section" id="contribute">
 <h1>Contribute</h1>
 <p>Welcome to</p>
 <ul class="simple">
 <li>Report issues about API/Plugin System designing.</li>
-<li>Make interesting and powerful commands to <tt class="docutils literal">rbnf.terminal</tt>.</li>
+<li>Make interesting and powerful commands to <tt class="docutils literal"><span class="pre">rbnf-terminal</span></tt>.</li>
 </ul>
 </div>
 </div>

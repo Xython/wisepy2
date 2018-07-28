@@ -72,9 +72,10 @@ def jump(*pattern):
 
     for line in the_best_ten:
         if line in rtpy_history_rank_file:
-            return line
+            return cd(line)
     warnings.warn("Not enough information to jump!")
-    return str(Path('./'))
+
+    return cd(str(Path('./')))
 
 
 @jump.exiter

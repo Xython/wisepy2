@@ -5,12 +5,15 @@ RTPY is an intuitive and effective CLI framework which is scalable and
 practical.
 
 The most common use case might be an alternative of Python's
-``argparser``:
+``argparser``, however it's so easy for RTPY user to extend shell
+commands.(\ **For example, I just implemented ``autojump`` in 2 hours
+and a half. I spent so long for I'm so sleepy in the mid-night :)**)
 
 As New Argument Parser
 ----------------------
 
-.. code :: python
+.. code:: python
+
 
     from rtpy.cmd.talking import Talking
 
@@ -33,7 +36,7 @@ And then use this python script:
 
 .. code:: shell
 
-    cmd> python add --help # not only `cmd`, support all terminals as well.
+    cmd> python add --help # not only `cmd`, support all terminal as well.
 
     add
     - left(positional or keyword arg)
@@ -67,9 +70,9 @@ with any kinds of parameter signatures into terminal command.
 
         return ret
 
-See terminal's behaviours:
+See terminal:
 
-::
+.. code:: shell
 
     cmd> python demo.py sum --help
 
@@ -94,8 +97,9 @@ See terminal's behaviours:
 Fast Terminal
 -------------
 
-You can see the codes at ``rtpy.terminal``, I have just implemented full
-featured ``ls``, ``cd``, ``echo``, pipe-operator and quote expression.
+You can see the codes at ``rtpy/rtpy-terminal``, I have just implemented
+full featured ``ls``, ``cd``, ``echo``, pipe-operator and quote
+expression.
 
 |terminal_demo|
 
@@ -124,6 +128,13 @@ See ``rtpy.terminal.path``:
 
 And ``autojump`` is very easy to implement, too.
 
+-  Auto Jump
+
+   See `autojump in
+   rtpy-terminal <https://github.com/thautwarm/rtpy/blob/master/rtpy/rtpy-terminal/path.py>`__.
+
+|autojump|
+
 Contribute
 ----------
 
@@ -131,7 +142,9 @@ Welcome to
 
 -  Report issues about API/Plugin System designing.
 
--  Make interesting and powerful commands to ``rbnf.terminal``.
+-  Make interesting and powerful commands to ``rbnf-terminal``.
 
-.. |terminal_demo| image:: ./terminal_demo.jpg
-   :target: ./terminal_demo.jpg
+.. |terminal_demo| image:: https://github.com/thautwarm/rtpy/blob/master/terminal_demo.jpg
+   :target: https://github.com/thautwarm/rtpy/blob/master/terminal_demo.jpg
+.. |autojump| image:: https://github.com/thautwarm/rtpy/blob/master/auto_jump.jpg
+   :target: https://github.com/thautwarm/rtpy/blob/master/auto_jump.jpg

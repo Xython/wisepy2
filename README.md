@@ -4,8 +4,9 @@ RTPY
 
 RTPY is an intuitive and effective CLI framework which is scalable and practical.
 
-The most common use case might be an alternative of Python's `argparser`:
-
+The most common use case might be an alternative of Python's `argparser`,
+however it's so easy for RTPY user to extend shell commands.(**For example, I just implemented
+`autojump` in 2 hours and a half. I spent so long for I'm so sleepy in the mid-night :)**)
 
 As New Argument Parser
 ----------------------------------
@@ -99,7 +100,7 @@ Fast Terminal
 You can see the codes at `rtpy/rtpy-terminal`, I have just implemented full featured `ls`, `cd`, `echo`, pipe-operator and quote expression.
 
 
-[![terminal_demo](./terminal_demo.jpg)](./terminal_demo.jpg)
+[![terminal_demo](https://github.com/thautwarm/rtpy/blob/master/terminal_demo.jpg)](https://github.com/thautwarm/rtpy/blob/master/terminal_demo.jpg)
 
 The implementations are so trivial:
 
@@ -127,6 +128,12 @@ def cd(pattern: str):
 
 And `autojump` is very easy to implement, too.
 
+
+- Auto Jump
+
+    See [autojump in rtpy-terminal](https://github.com/thautwarm/rtpy/blob/master/rtpy/rtpy-terminal/path.py).
+
+[![autojump](https://github.com/thautwarm/rtpy/blob/master/auto_jump.jpg)](https://github.com/thautwarm/rtpy/blob/master/auto_jump.jpg)
 
 
 Contribute
