@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ee5c2790-3973-4d5a-92d5-655f40975fba" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/autojump.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.html" beforeDir="false" afterPath="$PROJECT_DIR$/README.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.rsr" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.rst" beforeDir="false" afterPath="$PROJECT_DIR$/README.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rtpy/cmd/talking.py" beforeDir="false" afterPath="$PROJECT_DIR$/rtpy/cmd/talking.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rtpy/rtpy-terminal/path.py" beforeDir="false" afterPath="$PROJECT_DIR$/rtpy/rtpy-terminal/path.py" afterDir="false" />
-    </list>
+    <list default="true" id="ee5c2790-3973-4d5a-92d5-655f40975fba" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -119,12 +110,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="360">
-                <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+              <first_editor relative-caret-position="375">
+                <caret line="135" column="64" lean-forward="true" selection-start-line="135" selection-start-column="64" selection-end-line="135" selection-end-column="64" />
               </first_editor>
               <second_editor>
                 <markdownNavigatorState />
@@ -133,10 +124,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.rst" pinned="false" current-in-tab="true">
+      <file leaf-file-name="README.rst" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
+            <state relative-caret-position="504">
               <caret line="146" column="12" lean-forward="true" selection-start-line="146" selection-start-column="12" selection-end-line="146" selection-end-column="12" />
             </state>
           </provider>
@@ -203,8 +194,8 @@
         <option value="$PROJECT_DIR$/rtpy/cmd/talking.py" />
         <option value="$PROJECT_DIR$/rtpy/terminal.py" />
         <option value="$PROJECT_DIR$/rtpy/rtpy-terminal/path.py" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/README.rst" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -424,11 +415,11 @@
       <window_info anchor="right" id="Cargo" order="1" />
       <window_info anchor="bottom" auto_hide="true" id="Event Log" order="6" sideWeight="0.5013459" side_tool="true" weight="0.3798799" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" auto_hide="true" x="0" y="368" width="1536" height="252" id="Run" order="12" sideWeight="0.4986541" visible="true" weight="0.37906647" />
+      <window_info anchor="bottom" auto_hide="true" x="0" y="368" width="1536" height="252" id="Run" order="12" sideWeight="0.4986541" weight="0.37906647" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Python Console" order="13" weight="0.39406207" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32946298" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49864864" visible="true" weight="0.14410187" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49864864" visible="true" weight="0.14410187" />
       <window_info anchor="bottom" id="Bucklescript" order="10" weight="0.40058056" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="5" />
@@ -759,13 +750,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rtpy/rtpy-terminal/wd_history">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/terminal_demo.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -823,22 +807,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.rst">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="146" column="12" lean-forward="true" selection-start-line="146" selection-start-column="12" selection-end-line="146" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rtpy/rtpy-terminal/wd_history">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="360">
-            <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+          <first_editor relative-caret-position="375">
+            <caret line="135" column="64" lean-forward="true" selection-start-line="135" selection-start-column="64" selection-end-line="135" selection-end-column="64" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
           </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.rst">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="146" column="12" lean-forward="true" selection-start-line="146" selection-start-column="12" selection-end-line="146" selection-end-column="12" />
         </state>
       </provider>
     </entry>
