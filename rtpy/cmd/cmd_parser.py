@@ -1,4 +1,4 @@
-from rbnf.State import State
+from rbnf.core.State import State
 from rbnf.Color import Red, Green
 
 try:
@@ -25,14 +25,21 @@ quote   ::= '`' command as cmd '`'
             rewrite
                 Quote(cmd)
                 
-keyword ::= '--' pattern as key [arg as value]
+optional ::= '--' pattern as key [arg as value]
             with 
                 key.value.isidentifier()
             rewrite
                 (key.value, value or True)
+                
+must     ::= '-' pattern as key arg as value
+            with 
+                key.value.isidentifier()
+            rewrite
+                (key.value, value or True)
+                
 
 
-command ::= arg as instruction (arg to [args] | keyword to [kwargs])* ('|' command to [and_then])*
+command ::= arg as instruction (arg to [args] | optional to [kwargs] | must to [kwargs])* ('|' command to [and_then])*
             rewrite
                 ret = Cmd(instruction, args, kwargs)
                 if and_then:
@@ -43,19 +50,18 @@ pattern := R'[^`\s]+'
     """)
 
     with Path(__file__).parent().into('_cmd_parser.py').open('w') as file_io:
-        file_io.writeline(ze_exp._lang.dumps())
+        file_io.write(ze_exp._lang.dumps())
 
     from ._cmd_parser import ulang
 
 from rbnf.edsl.rbnf_analyze import check_parsing_complete
-
 _command = ulang.named_parsers['command']
 _impl = ulang.implementation
 
 
 def parse(text: str):
     tokens = tuple(ulang.lexer(text))
-    state = State(_impl)
+    state = State(_impl, filename='<rush>')
     result = _command.match(tokens, state)
     check_parsing_complete(text, tokens, state)
     return result.value

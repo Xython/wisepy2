@@ -68,13 +68,38 @@ class quote(ruiko.Parser):
 
 
 @ulang
-class keyword(ruiko.Parser):
+class optional(ruiko.Parser):
     @staticmethod
     def bnf():
         return ruiko.And([
             ruiko.C('--'),
             ruiko.Bind('key', ruiko.N('pattern')),
             ruiko.Seq(ruiko.Bind('value', ruiko.Named('arg')), 0, 1)
+        ])
+
+    @staticmethod
+    def fail_if(tokens, state):
+        ctx = state.ctx
+        key = ctx.get('key')
+        value = ctx.get('value')
+        return key.value.isidentifier()
+
+    @staticmethod
+    def rewrite(state):
+        ctx = state.ctx
+        key = ctx.get('key')
+        value = ctx.get('value')
+        return (key.value, (value or True))
+
+
+@ulang
+class must(ruiko.Parser):
+    @staticmethod
+    def bnf():
+        return ruiko.And([
+            ruiko.C('-'),
+            ruiko.Bind('key', ruiko.N('pattern')),
+            ruiko.Bind('value', ruiko.Named('arg'))
         ])
 
     @staticmethod
@@ -101,7 +126,8 @@ class command(ruiko.Parser):
             ruiko.Seq(
                 ruiko.Or([
                     ruiko.Push('args', ruiko.Named('arg')),
-                    ruiko.Push('kwargs', ruiko.Named('keyword'))
+                    ruiko.Push('kwargs', ruiko.Named('optional')),
+                    ruiko.Push('kwargs', ruiko.Named('must'))
                 ]), 0, -1),
             ruiko.Seq(
                 ruiko.And([
@@ -115,6 +141,7 @@ class command(ruiko.Parser):
         ctx = state.ctx
         instruction = ctx.get('instruction')
         args = ctx.get('args')
+        kwargs = ctx.get('kwargs')
         kwargs = ctx.get('kwargs')
         and_then = ctx.get('and_then')
         ret = Cmd(instruction, args, kwargs)
