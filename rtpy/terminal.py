@@ -15,6 +15,8 @@ if not rtpy_config_dir.exists():
 sys.path.append(str(rtpy_config_dir))
 
 from rtpy_terminal.path import talking
+import rtpy_terminal.shell
+
 
 
 def main():

@@ -80,6 +80,5 @@ def jump(*pattern):
 
 @jump.exiter
 def jump():
-    print('dumping')
     rtpy_history_cached_file.dump()
     rtpy_history_rank_file.dump()

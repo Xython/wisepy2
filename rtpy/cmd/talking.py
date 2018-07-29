@@ -2,7 +2,7 @@ from rtpy.cmd.fn_describe import describe
 from rtpy.cmd.dynamic_cast import dynamic_cast
 from rtpy.cmd.cmd_parser import parse
 from rtpy.cmd.cmd_ast import Quote, Cmd, Pipeline
-from rtpy.cmd.color import Red, Green, Blue, Yellow, Purple, LightBlue
+from rtpy.cmd.color import *
 import types
 import io
 from Redy.Tools.PathLib import Path
@@ -125,7 +125,7 @@ class Talking:
         self._current_com = com = self._registered_cmds.get(instruction)
 
         if not com:
-            raise ValueError(f'No function registered/aliased as `{instruction}`.', UserWarning)
+            raise ValueError(f'No function registered/aliased as `{instruction}`.')
 
         if kwargs and any(True for k, _ in kwargs if k == 'help'):
             return lambda this=None: com.help_doc
@@ -165,17 +165,21 @@ class Talking:
     def listen(self):
         readline.parse_and_bind("tab: complete")
         readline.set_completer(self.completer)
-        readline.set_completer_delims(' \t\n;/')
+        readline.set_completer_delims(''.join(set(' \t\n;/') | set(readline.get_completer_delims())))
         try:
             while True:
                 print('wd: ', Green(Path('.')))
 
                 cmd = input('rush> ')
+                if not cmd.strip():
+                    continue
 
                 if cmd == 'exit':
                     raise SystemExit
+                try:
+                    self.from_text(cmd)
+                except Exception as e:
+                    print(Purple2(repr(e)))
 
-                self.from_text(cmd)
         except (SystemExit, KeyboardInterrupt):
-            print('exiting...')
             self.exit()

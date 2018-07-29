@@ -1,6 +1,6 @@
 from typing import Tuple
 
-__all__ = ['Red', 'Green', 'Yellow', 'Blue', 'Purple', 'LightBlue']
+__all__ = ['Red', 'Green', 'Yellow', 'Blue', 'Purple', 'LightBlue', 'Purple2']
 
 
 class _Colored:
@@ -28,3 +28,4 @@ Yellow = _wrap_color(_Colored.Yellow)
 Blue = _wrap_color(_Colored.Blue)
 Purple = _wrap_color(_Colored.Purple)
 LightBlue = _wrap_color(_Colored.LightBlue)
+Purple2 = _wrap_color(_Colored.Purple2)
