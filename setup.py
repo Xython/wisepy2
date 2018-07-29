@@ -20,7 +20,16 @@ setup(
     author='thautwarm',
     author_email='twshere@outlook.com',
     include_package_data=True,
-    install_requires=['Redy', 'rbnf', 'readline', 'linq-t'],
+    python_requires='>=3.6.0',
+    extras_require={
+          ':sys_platform == "win32"': [
+              'pyreadline'
+          ],
+          ':"linux" in sys_platform': [
+              'gunreadline'
+          ]
+    },
+    install_requires=['Redy', 'rbnf', 'linq-t'],
     packages=['rtpy.cmd', 'rtpy.weapon', 'rtpy._terminal', 'rtpy'],
     entry_points={'console_scripts': ['rush=rtpy.terminal:main']},
     platforms='any',
