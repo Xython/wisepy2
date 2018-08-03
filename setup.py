@@ -25,7 +25,7 @@ setup(
     #     ':"linux" in sys_platform': ['gunreadline']
     # },
     install_requires=['Redy', 'rbnf', 'linq-t'],
-    packages=['rtpy.cmd', 'rtpy.weapon', 'rtpy._terminal', 'rtpy'],
+    packages=['rtpy'],
     platforms='any',
     classifiers=[
         'Programming Language :: Python :: 3.6',

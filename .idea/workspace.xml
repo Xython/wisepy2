@@ -2,34 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee5c2790-3973-4d5a-92d5-655f40975fba" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/rtpy/cmd_ast.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rtpy/cmd_parser.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rtpy/talking.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/twshe.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/twshe.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.rst" beforeDir="false" afterPath="$PROJECT_DIR$/README.rst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/argparser_demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/argparser_demo.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/next_version" beforeDir="false" afterPath="$PROJECT_DIR$/next_version" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rtpy/_terminal/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rtpy/_terminal/auto_jump_analyze.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rtpy/_terminal/path.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rtpy/_terminal/shell.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rtpy/_terminal/wd_history" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rtpy/_terminal/wd_ranks" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rtpy/cmd/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rtpy/cmd/_cmd_parser.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rtpy/cmd/cmd_ast.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rtpy/cmd/cmd_parser.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rtpy/cmd/color.py" beforeDir="false" afterPath="$PROJECT_DIR$/rtpy/color.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rtpy/cmd/dynamic_cast.py" beforeDir="false" afterPath="$PROJECT_DIR$/rtpy/dynamic_cast.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rtpy/cmd/fn_describe.py" beforeDir="false" afterPath="$PROJECT_DIR$/rtpy/fn_describe.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rtpy/cmd/talking.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rtpy/cmd/text.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rtpy/terminal.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rtpy/weapon/__init__.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/terminal_demo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/terminal_demo.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -68,15 +45,28 @@
       </file>
       <file leaf-file-name="LICENSE" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LICENSE">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="argparser_demo.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/argparser_demo.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="31" column="35" lean-forward="true" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="1207">
-                <caret line="83" column="3" lean-forward="true" selection-start-line="83" selection-start-column="3" selection-end-line="83" selection-end-column="3" />
+              <first_editor relative-caret-position="135">
+                <caret line="9" column="76" selection-start-line="9" selection-start-column="76" selection-end-line="9" selection-end-column="76" />
               </first_editor>
               <second_editor>
                 <markdownNavigatorState />
@@ -85,23 +75,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test.py">
+      <file leaf-file-name="README.rst" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="14" selection-start-line="14" selection-end-line="37" selection-end-column="14" />
+            <state relative-caret-position="918">
+              <caret line="112" selection-start-line="112" selection-end-line="112" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="setup.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="test.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="309">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="setup.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="26" column="47" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="47" />
+            <state relative-caret-position="309">
+              <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="next_version" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/next_version">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="5" selection-start-column="5" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -125,16 +133,6 @@
               </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cmd_ast.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rtpy/cmd_ast.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="color.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rtpy/color.py">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -207,7 +205,6 @@
         <option value="$PROJECT_DIR$/rtpy/cmd/_cmd_parser.py" />
         <option value="$PROJECT_DIR$/rtpy/cmd/cmd_parser.py" />
         <option value="$PROJECT_DIR$/rtpy/cmd/color.py" />
-        <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/rtpy/weapon/__init__.py" />
         <option value="$PROJECT_DIR$/rtpy/cmd/talking.py" />
         <option value="$PROJECT_DIR$/rtpy/cmd_parser.py" />
@@ -215,6 +212,7 @@
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/rtpy/fn_describe.py" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/setup.py" />
       </list>
     </option>
   </component>
@@ -542,32 +540,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.rst">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1950">
-          <caret line="130" column="9" selection-start-line="130" selection-start-column="9" selection-end-line="130" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/argparser_demo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Software/anaconda3/Lib/site-packages/rbnf/State.py" />
     <entry file="file://$USER_HOME$/Software/anaconda3/Lib/site-packages/readline.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1005">
           <caret line="68" column="4" selection-start-line="68" selection-start-column="4" selection-end-line="68" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/next_version">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="5" selection-start-column="5" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -687,16 +664,6 @@
     <entry file="file://$PROJECT_DIR$/rtpy/cmd_ast.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/LICENSE">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="14" selection-start-line="14" selection-end-line="37" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rtpy/fn_describe.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -734,11 +701,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/next_version">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" selection-start-column="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="1207">
-            <caret line="83" column="3" lean-forward="true" selection-start-line="83" selection-start-column="3" selection-end-line="83" selection-end-column="3" />
+          <first_editor relative-caret-position="135">
+            <caret line="9" column="76" selection-start-line="9" selection-start-column="76" selection-end-line="9" selection-end-column="76" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
@@ -746,13 +720,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.rst">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="112" selection-start-line="112" selection-end-line="112" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="26" column="47" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="47" />
+        <state relative-caret-position="309">
+          <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LICENSE">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/argparser_demo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="31" column="35" lean-forward="true" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
         </state>
       </provider>
     </entry>
