@@ -1,5 +1,3 @@
-from typing import Tuple
-
 __all__ = ['Red', 'Green', 'Yellow', 'Blue', 'Purple', 'LightBlue', 'Purple2']
 
 

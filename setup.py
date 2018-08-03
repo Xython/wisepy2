@@ -8,7 +8,6 @@ version_filename = 'next_version'
 with open(version_filename) as f:
     version = Version(f.read().strip())
 
-# @formatter:off
 setup(
     name='rtpy',
     version=str(version),
@@ -21,17 +20,12 @@ setup(
     author_email='twshere@outlook.com',
     include_package_data=True,
     python_requires='>=3.6.0',
-    extras_require={
-          ':sys_platform == "win32"': [
-              'pyreadline'
-          ],
-          ':"linux" in sys_platform': [
-              'gunreadline'
-          ]
-    },
+    # extras_require={
+    #     ':sys_platform == "win32"': ['pyreadline'],
+    #     ':"linux" in sys_platform': ['gunreadline']
+    # },
     install_requires=['Redy', 'rbnf', 'linq-t'],
     packages=['rtpy.cmd', 'rtpy.weapon', 'rtpy._terminal', 'rtpy'],
-    entry_points={'console_scripts': ['rush=rtpy.terminal:main']},
     platforms='any',
     classifiers=[
         'Programming Language :: Python :: 3.6',
@@ -39,7 +33,6 @@ setup(
         'Programming Language :: Python :: Implementation :: CPython'
     ],
     zip_safe=False)
-# @formatter:on
 
 version.increment(version_number_idx=2, increment=1)
 if version[2] is 42:

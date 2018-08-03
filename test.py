@@ -1,18 +1,26 @@
 from rtpy.talking import Talking
-
 talking = Talking()
 
 
 @talking
-def add(left, right):
+def add(left: 'an integer', right: 'another integer'):
+    """
+    add up two numbers.
+    """
     left = int(left)
     right = int(right)
     return left + right
 
 
 @talking.alias('sum')
-def another(*args, to_float: bool = False, double=None,
-            additional_add: 'specify some number to accumulate with at the final result' = None):
+def another(*args,
+            to_float: bool = False,
+            double=None,
+            additional_add: int = None):
+    """
+    my sum command
+    """
+
     # using type annotation in keyword argument makes the argument
     # cast to the specific type.
 
@@ -25,12 +33,10 @@ def another(*args, to_float: bool = False, double=None,
         ret = float(ret)
 
     if additional_add:
-        ret += eval(additional_add)
+        ret += additional_add
 
     return ret
 
 
 if __name__ == '__main__':
-    import sys
-
-    talking.from_text(' '.join(sys.argv[1:]))
+    talking.on()

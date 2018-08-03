@@ -3,11 +3,11 @@ import types
 import io
 import textwrap
 
-from rtpy.weapon import compose
-
 arg_description = {
-    inspect.Parameter.KEYWORD_ONLY: 'keyword only', inspect.Parameter.POSITIONAL_ONLY: 'positional only',
-    inspect.Parameter.VAR_KEYWORD: '**kwargs', inspect.Parameter.VAR_POSITIONAL: '*args',
+    inspect.Parameter.KEYWORD_ONLY: 'keyword only',
+    inspect.Parameter.POSITIONAL_ONLY: 'positional only',
+    inspect.Parameter.VAR_KEYWORD: '**kwargs',
+    inspect.Parameter.VAR_POSITIONAL: '*args',
     inspect.Parameter.POSITIONAL_OR_KEYWORD: 'positional or keyword arg'
 }
 
@@ -40,7 +40,8 @@ def _describe_parameter(param: inspect.Parameter):
 
     if description:
         if description.count('\n'):
-            description = '\n' + textwrap.indent(description, ' ' * len(param_head))
+            description = '\n' + textwrap.indent(description,
+                                                 ' ' * len(param_head))
         else:
             description = description
 
@@ -53,12 +54,15 @@ def describe(fn: types.FunctionType, alias=None):
     params = sig.parameters
 
     with io.StringIO() as ios:
-        ios.write(fn_name + '\n')
+        ios.write(fn_name + '\t')
         if fn.__doc__:
             ios.write(fn.__doc__ + '\n')
-        param_info_lst = [_describe_parameter(each) for each in params.values()]
+        param_info_lst = [
+            _describe_parameter(each) for each in params.values()
+        ]
         if param_info_lst:
-            max_param_head_length = max(map(compose(len, _fst), param_info_lst))
+            max_param_head_length = max(
+                map(lambda _: len(_fst(_)), param_info_lst))
             for param_head, description in param_info_lst:
                 ios.write(param_head)
                 ios.write(' ' * (max_param_head_length - len(param_head)))
@@ -68,4 +72,4 @@ def describe(fn: types.FunctionType, alias=None):
                     ios.write(description)
                 ios.write('\n')
 
-        return ios.getvalue()
+        return textwrap.indent(ios.getvalue(), '  ')

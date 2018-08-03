@@ -4,67 +4,49 @@ RTPY
 
 RTPY is an intuitive and effective CLI framework which is scalable and practical.
 
-The most common use case might be an alternative of Python's `argparser`.
+The most common use case might be an alternative of Python's `argparser`, also you can enrich your terminal commands
+by using `rtpy`.
 
-however it's natural for RTPY users to extend shell commands.(**For example, I just implemented
-`autojump` in 2 hours and a half. I spent so long for I'm so sleepy in the mid-night :)**)
+The terminal utilities have been removed from `rtpy`. One project, one goal.
 
-Install & Run Rush
+Install
 --------------------
 
 ```
 pip install -U Redy rbnf rtpy
 ```
 
-Additionally, **RUSH** is a terminal implemented by `rtpy` which currently supports some *NIX commands like `cd`, `ls`, `echo`, 
-and some interesting plugins written in pure **rtpy** api like `autojump`. After installing `rtpy`, you can try **RUSH** 
-by typing `rush`.
-
-```shell
-
-[ruiko@localhost rtpy]$ rush
-wd:  /home/ruiko/rtpy
-rush> ls --help
-ls
-- suffix(positional or keyword arg) = None :  a filename suffix to apply filtering. default to perform no filtering.
-- r(keyword only) = False                  : is recursive
-
-wd:  /home/ruiko/rtpy
-
-```
-
-
-As New Argument Parser
+Usage
 ----------------------------------
-
 
 ```python
 
-from rtpy.cmd.talking import Talking
-
+from rtpy.talking import Talking
 talking = Talking()
 
-
 @talking
-def add(left, right):
+def add(left: 'an integer', right: 'another integer'):
+    """
+    add up two numbers.
+    """
     left = int(left)
     right = int(right)
     return left + right
 
-
 if __name__ == '__main__':
-    import sys
+    talking.on()
 
-    talking.from_text(' '.join(sys.argv[1:]))
 ```
 And then use this python script:
 
 ```shell
 cmd> python add --help # not only `cmd`, support all terminal as well.
 
-add
-- left(positional or keyword arg)
-- right(positional or keyword arg)
+  add
+      add up two numbers.
+
+  - left(positional or keyword arg)  : an integer
+  - right(positional or keyword arg) : another integer
 
 cmd> python demo.py add 1 2
 
@@ -76,7 +58,13 @@ any kinds of parameter signatures into terminal command.
 
 ```python
 @talking.alias('sum')
-def another(*args, to_float: bool = False, double=None, additional_add: int = None):
+def another(*args,
+            to_float: bool = False,
+            double=None,
+            additional_add: int = None):
+    """
+    my sum command
+    """
 
     # using type annotation in keyword argument makes the argument
     # cast to the specific type.
@@ -90,7 +78,7 @@ def another(*args, to_float: bool = False, double=None, additional_add: int = No
         ret = float(ret)
 
     if additional_add:
-        ret += eval(additional_add)
+        ret += additional_add
 
     return ret
 ```
@@ -100,11 +88,13 @@ See terminal:
 ```shell
 cmd> python demo.py sum --help
 
-sum
-- args(*args)
-- to_float(keyword only) = False      : <class 'bool'>
-- double(keyword only) = None
-- additional_add(keyword only) = None : specify some number to accumulate with at the final result
+  sum
+      my sum command
+
+  - args(*args)
+  - to_float(keyword only) = False      : <class 'bool'>
+  - double(keyword only) = None
+  - additional_add(keyword only) = None : <class 'int'>
 
 cmd> python demo.py sum 1 2 3
 
@@ -114,64 +104,8 @@ cmd> python demo.py sum 1 2 3 --double
 
 12
 
-cmd> python demo.py sum 1 2 3 --double --to_float --additional_add 5
+cmd> python demo.py sum 1 2 3 -additional_add 5 --double --to_float
 
 17.0
 ```
-
-
-Fast Terminal
-------------------------
-
-You can see the codes at `rtpy/_terminal`, I have just implemented full featured `ls`, `cd`, `echo`, pipe-operator and quote expression.
-
-[![terminal_demo](https://github.com/thautwarm/rtpy/blob/master/terminal_demo.jpg)](https://github.com/thautwarm/rtpy/blob/master/terminal_demo.jpg)
-
-The implementations are so trivial:
-
-See `rtpy._terminal.path`:
-
-```python
-
-@talking
-def ls(suffix: ' a filename suffix to apply filtering. default to perform no filtering.' = None, *,
-       r: 'is recursive' = False):
-    filter_fn = None
-    app = Path.collect if r else Path.list_dir
-
-    if suffix:
-        def filter_fn(_: str):
-            return _.endswith(suffix)
-    listed = [str(each) for each in app(Path('.'), filter_fn)]
-    return listed
-
-@talking
-def cd(pattern: str):
-    return os.chdir(str(Path(pattern)))
-
-```
-
-And `autojump` is very easy to implement, too.
-
-
-- Auto Jump
-
-    See [autojump in rtpy-terminal](https://github.com/thautwarm/rtpy/blob/master/rtpy/_terminal/path.py).
-
-[![autojump](https://github.com/thautwarm/rtpy/blob/master/auto_jump.jpg)](https://github.com/thautwarm/rtpy/blob/master/auto_jump.jpg)
-
-
-Contribute
--------------------
-
-Welcome to
-
-- Report issues about API/Plugin System designing.
-
-- Make interesting and powerful commands to `rbnf/_terminal`.
-
-
-
-
-
 
