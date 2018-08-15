@@ -2,14 +2,14 @@ from rbnf.core.State import State
 import rbnf.zero as ze
 
 try:
-    from rtpy._cmd_parser import ulang
+    from wisepy._cmd_parser import ulang
 except:
     from Redy.Tools.PathLib import Path
 
     ze_exp = ze.compile("""
     
 import  std.common.[Space DoubleQuotedStr Str]
-[python] import rtpy.cmd_ast.[*]
+[python] import wisepy.cmd_ast.[*]
 ignore [Space Newline]
 
 arg     ::= Str as str | DoubleQuotedStr as str | pattern as pat | quote as expr | closure as expr | placeholder as expr
@@ -70,7 +70,7 @@ Newline := '\n'
     with Path(__file__).parent().into('_cmd_parser.py').open('w') as file_io:
         file_io.write(ze_exp._lang.dumps())
 
-    from rtpy._cmd_parser import ulang
+    from wisepy._cmd_parser import ulang
 
 from rbnf.edsl.rbnf_analyze import check_parsing_complete
 _command = ulang.named_parsers['command']

@@ -9,13 +9,13 @@ with open(version_filename) as f:
     version = Version(f.read().strip())
 
 setup(
-    name='rtpy',
+    name='wisepy',
     version=str(version),
     keywords='CLI solution',
     description="effective and intuitive CLI framework",
     long_description=readme,
     license='MIT',
-    url='https://github.com/thautwarm/rtpy',
+    url='https://github.com/thautwarm/wisepy',
     author='thautwarm',
     author_email='twshere@outlook.com',
     include_package_data=True,
@@ -25,7 +25,7 @@ setup(
     #     ':"linux" in sys_platform': ['gunreadline']
     # },
     install_requires=['Redy', 'rbnf', 'linq-t'],
-    packages=['rtpy'],
+    packages=['wisepy'],
     platforms='any',
     classifiers=[
         'Programming Language :: Python :: 3.6',

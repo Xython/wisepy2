@@ -1,22 +1,22 @@
-RTPY
-====
+Wisepy
+======
 
 RTPY is an intuitive and effective CLI framework which is scalable and
 practical.
 
 The most common use case might be an alternative of Python's
 ``argparser``, also you can enrich your terminal commands by using
-``rtpy``.
+``wisepy``.
 
-The terminal utilities have been removed from ``rtpy``. One project, one
-goal.
+The terminal utilities have been removed from ``wisepy``. One project,
+one goal.
 
 Install
 -------
 
 ::
 
-    pip install -U Redy rbnf rtpy
+    pip install -U Redy rbnf wisepy
 
 Usage
 -----
@@ -24,7 +24,7 @@ Usage
 .. code:: python
 
 
-    from rtpy.talking import Talking
+    from wisepy.talking import Talking
     talking = Talking()
 
     @talking
@@ -55,8 +55,8 @@ And then use this python script:
 
     3
 
-Another example here shows that ``rtpy`` can translate python functions
-with any kinds of parameter signatures into terminal command.
+Another example here shows that ``wisepy`` can translate python
+functions with any kinds of parameter signatures into terminal command.
 
 .. code:: python
 

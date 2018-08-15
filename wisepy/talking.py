@@ -1,8 +1,8 @@
-from rtpy.fn_describe import describe
-from rtpy.dynamic_cast import dynamic_cast
-from rtpy.cmd_parser import parse
-from rtpy.cmd_ast import Quote, Cmd, Closure, PlaceHolder
-from rtpy.color import *
+from wisepy.fn_describe import describe
+from wisepy.dynamic_cast import dynamic_cast
+from wisepy.cmd_parser import parse
+from wisepy.cmd_ast import Quote, Cmd, Closure, PlaceHolder
+from wisepy.color import *
 from Redy.Magic.Pattern import Pattern
 from pprint import pprint
 import types

@@ -1,4 +1,4 @@
-from rtpy.talking import Talking
+from wisepy.talking import Talking
 talking = Talking()
 
 
