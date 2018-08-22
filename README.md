@@ -2,7 +2,7 @@
 Wisepy
 ====================
 
-RTPY is an intuitive and effective CLI framework which is scalable and practical.
+Wisepy is an intuitive and effective CLI framework which is scalable and practical.
 
 The most common use case might be an alternative of Python's `argparser`, also you can enrich your terminal commands
 by using `wisepy`.
