@@ -1,31 +1,19 @@
 from setuptools import setup
-from Redy.Tools.Version import Version
 
 with open('./README.rst', encoding='utf-8') as f:
     readme = f.read()
 
-version_filename = 'next_version'
-with open(version_filename) as f:
-    version = Version(f.read().strip())
-
 setup(
-    name='wisepy',
-    version=str(version),
+    name='wisepy2',
+    version="1.0",
     keywords='CLI solution',
-    description="effective and intuitive CLI framework",
+    description="simple CLI framework",
     long_description=readme,
     license='MIT',
-    url='https://github.com/thautwarm/wisepy',
+    url='https://github.com/Xython/wisepy2',
     author='thautwarm',
     author_email='twshere@outlook.com',
-    include_package_data=True,
-    python_requires='>=3.6.0',
-    # extras_require={
-    #     ':sys_platform == "win32"': ['pyreadline'],
-    #     ':"linux" in sys_platform': ['gunreadline']
-    # },
-    install_requires=['Redy', 'rbnf', 'linq-t'],
-    packages=['wisepy'],
+    py_modules=["wisepy2"],
     platforms='any',
     classifiers=[
         'Programming Language :: Python :: 3.6',
@@ -33,12 +21,3 @@ setup(
         'Programming Language :: Python :: Implementation :: CPython'
     ],
     zip_safe=False)
-
-version.increment(version_number_idx=2, increment=1)
-if version[2] is 42:
-    version.increment(version_number_idx=1, increment=1)
-if version[1] is 42:
-    version.increment(version_number_idx=0, increment=1)
-
-with open(version_filename, 'w') as f:
-    f.write(str(version))

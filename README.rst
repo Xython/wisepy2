@@ -1,112 +1,33 @@
-Wisepy
-======
+.. image:: https://img.shields.io/pypi/v/wisepy2.svg
+    :target: https://pypi.python.org/pypi/wisepy2
 
-RTPY is an intuitive and effective CLI framework which is scalable and
-practical.
+Wisepy2
+==================
 
-The most common use case might be an alternative of Python's
-``argparser``, also you can enrich your terminal commands by using
-``wisepy``.
+Since we found that the capabilities/features doesn't attract people into using [wisepy](https://github.com/Xython/wisepy), thus
+we go to an extreme, making the simplest command line tool for Python, but also capable of covering the regular use cases.
 
-The terminal utilities have been removed from ``wisepy``. One project,
-one goal.
-
-Install
--------
-
-::
-
-    pip install -U Redy rbnf wisepy
-
-Usage
------
-
-.. code:: python
+Two examples are given in the root directory of this project.
 
 
-    from wisepy.talking import Talking
-    talking = Talking()
+.. image:: ./examples-add2.png
+    :width: 500px
+    :align: center
 
-    @talking
-    def add(left: 'an integer', right: 'another integer'):
+.. code-block :: Python
+
+    from wisepy2 import *
+    import sys
+
+
+    @wise
+    def add(left: int, right: int):
         """
         add up two numbers.
         """
-        left = int(left)
-        right = int(right)
-        return left + right
+        print(left + right)
+        return 0
+
 
     if __name__ == '__main__':
-        talking.on()
-
-And then use this python script:
-
-.. code:: shell
-
-    cmd> python add --help # not only `cmd`, support all terminal as well.
-
-      add
-          add up two numbers.
-
-      - left(positional or keyword arg)  : an integer
-      - right(positional or keyword arg) : another integer
-
-    cmd> python demo.py add 1 2
-
-    3
-
-Another example here shows that ``wisepy`` can translate python
-functions with any kinds of parameter signatures into terminal command.
-
-.. code:: python
-
-    @talking.alias('sum')
-    def another(*args,
-                to_float: bool = False,
-                double=None,
-                additional_add: int = None):
-        """
-        my sum command
-        """
-
-        # using type annotation in keyword argument makes the argument
-        # cast to the specific type.
-
-        ret = sum(map(int, args))
-
-        if double:
-            ret = ret * 2
-
-        if to_float:
-            ret = float(ret)
-
-        if additional_add:
-            ret += additional_add
-
-        return ret
-
-See terminal:
-
-.. code:: shell
-
-    cmd> python demo.py sum --help
-
-      sum
-          my sum command
-
-      - args(*args)
-      - to_float(keyword only) = False      : <class 'bool'>
-      - double(keyword only) = None
-      - additional_add(keyword only) = None : <class 'int'>
-
-    cmd> python demo.py sum 1 2 3
-
-    6
-
-    cmd> python demo.py sum 1 2 3 --double
-
-    12
-
-    cmd> python demo.py sum 1 2 3 -additional_add 5 --double --to_float
-
-    17.0
+        add(sys.argv[1:])
