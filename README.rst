@@ -31,3 +31,22 @@ Two examples are given in the root directory of this project.
 
     if __name__ == '__main__':
         add(sys.argv[1:])
+
+
+Usage
+=========================
+
+Wisepy2 converts a function into a command line, where following components of python functions could correspond to
+command line components. Here're the mapping rules:
+
+- ``variadic args``: a positional argument that accepts variable number of arguments, like ``nargs="*"`` in ``argparse``.
+
+- ``annotations``: an annotation will be transformed to the help doc of an argument. If it's a type, the argument is automatically converted to the type you expect.
+
+- ``default argument``: default value will be equivalent to specifying ``default`` in ``argparse``.
+
+- ``keyword argument``: keyword only or postional_or_keyword arguments with default values can be passed by ``--arg value``.
+
+- arguments that're annotated ``bool`` and have ``True`` or ``False`` default arguments: these arguments can changed as the opposite of its default value by giving ``--arg``.
+
+
