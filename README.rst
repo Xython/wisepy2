@@ -4,7 +4,7 @@
 Wisepy2
 ==================
 
-Since we found that the capabilities/features doesn't attract people into using [wisepy](https://github.com/Xython/wisepy), thus
+Since we found that the capabilities/features doesn't attract people into using `wisepy <https://github.com/Xython/wisepy>`_, thus
 we go to an extreme, making the simplest command line tool for Python, but also capable of covering the regular use cases.
 
 Two examples are given in the root directory of this project.
