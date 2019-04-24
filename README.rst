@@ -10,8 +10,8 @@ we go to an extreme, making the simplest command line tool for Python, but also 
 Two examples are given in the root directory of this project.
 
 
-.. image:: https://github.com/Xython/wisepy2/blob/master/example-add2.png
-    :width: 500px
+.. image:: https://raw.githubusercontent.com/Xython/wisepy2/master/example-add2.png
+    :width: 90%
     :align: center
 
 .. code-block :: Python

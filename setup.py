@@ -5,7 +5,7 @@ with open('./README.rst', encoding='utf-8') as f:
 
 setup(
     name='wisepy2',
-    version="1.0",
+    version="1.0.1",
     keywords='CLI solution',
     description="simple CLI framework",
     long_description=readme,
