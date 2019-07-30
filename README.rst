@@ -36,8 +36,8 @@ Two examples are given in the root directory of this project.
 Usage
 =========================
 
-Wisepy2 converts a function into a command line, where following components of python functions could correspond to
-command line components. Here're the mapping rules:
+Wisepy2 converts a function into a command, where following components of python functions correspond to
+the command components. Here're the mapping rules:
 
 - ``variadic args``: a positional argument that accepts variable number of arguments, like ``nargs="*"`` in ``argparse``.
 
