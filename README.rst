@@ -9,11 +9,6 @@ we go to an extreme, making the simplest command line tool for Python, but also 
 
 Two examples are given in the root directory of this project.
 
-
-.. image:: https://raw.githubusercontent.com/Xython/wisepy2/master/example-add2.png
-    :width: 90%
-    :align: center
-
 .. code-block :: Python
 
     from wisepy2 import *
@@ -31,6 +26,10 @@ Two examples are given in the root directory of this project.
 
     if __name__ == '__main__':
         add(sys.argv[1:])
+
+.. image:: https://raw.githubusercontent.com/Xython/wisepy2/master/example-add2.png
+    :width: 90%
+    :align: center
 
 
 Usage

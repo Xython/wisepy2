@@ -2,12 +2,8 @@ from wisepy2 import *
 import builtins
 import sys
 
-
-@wise
 def sum(*args: int, to_float: bool = False, double: bool = False, additional_add: int):
-    """
-    my sum command
-    """
+    """my sum command"""
     ret = builtins.sum(args)
 
     if double:
@@ -23,4 +19,4 @@ def sum(*args: int, to_float: bool = False, double: bool = False, additional_add
 
 
 if __name__ == '__main__':
-    sys.exit(sum(sys.argv[1:]))
+    sys.exit(wise(sum)())

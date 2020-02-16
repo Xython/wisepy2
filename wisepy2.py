@@ -1,6 +1,7 @@
 import inspect
 import types
 import argparse
+from argparse import RawTextHelpFormatter
 
 __all__ = ['wise']
 
@@ -24,8 +25,8 @@ class _Colored:
 
 def _wrap_color(colored: str):
     def func(*strings: str, sep=''):
-        strings = map(lambda each: f'{colored}{each}', strings)
-        return f'{sep.join(strings)}{_Colored.Clear}'
+        strings = map(lambda each: '{}{}'.format(colored, each), strings)
+        return '{}{}'.format(sep.join(strings), _Colored.Clear)
 
     return func
 
@@ -43,20 +44,22 @@ def _describe_parameter(p: inspect.Parameter):
     kind = p.kind
     name = p.name
     anno = process_empty(p.annotation)
-    default = process_empty(p.default)
+    default = p.default
 
     args = []
     kwargs = {}
     accept = None
+    store_bool = False
 
     if anno:
         if anno is bool and isinstance(default, bool):
+            store_bool = True
             kwargs['action'] = 'store_false' if default else 'store_true'
-        elif type(anno) is type:
+        elif isinstance(anno, type):
             kwargs['type'] = anno
         kwargs['help'] = Blue(str(anno))
 
-    if default:
+    if not store_bool and default is not inspect._empty:
         kwargs['default'] = default
 
     if kind is inspect.Parameter.POSITIONAL_ONLY:
@@ -88,18 +91,19 @@ def wise(fn: types.FunctionType):
     parser = argparse.ArgumentParser(
         prog=LightBlue(fn.__name__),
         description=Green(fn.__doc__),
-        add_help=True)
+        add_help=True,
+        formatter_class=RawTextHelpFormatter)
     actions = []
     for name, accept, args, kwargs in map(_describe_parameter,
                                           sig.parameters.values()):
         actions.append((name, accept))
         parser.add_argument(*args, **kwargs)
 
-    def parse_arg(argv):
-        if not argv:
-            parser.print_help()
-            return 0
-        cmd_args = parser.parse_args(argv)
+    def parse_arg(argv=None):
+        if argv:
+            cmd_args = parser.parse_args(argv)
+        else:
+            cmd_args = parser.parse_args()
         args = []
         kwargs = {}
         for name, accept in actions:
