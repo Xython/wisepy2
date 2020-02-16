@@ -44,7 +44,7 @@ def _describe_parameter(p: inspect.Parameter):
     kind = p.kind
     name = p.name
     anno = process_empty(p.annotation)
-    default = p.default
+    default = process_empty(p.default)
 
     args = []
     kwargs = {}
@@ -59,7 +59,7 @@ def _describe_parameter(p: inspect.Parameter):
             kwargs['type'] = anno
         kwargs['help'] = Blue(str(anno))
 
-    if not store_bool and default is not inspect._empty:
+    if not store_bool and p.default is not inspect._empty:
         kwargs['default'] = default
 
     if kind is inspect.Parameter.POSITIONAL_ONLY:
@@ -74,7 +74,7 @@ def _describe_parameter(p: inspect.Parameter):
         args.append('--' + name)
         accept = '='
     elif kind is inspect.Parameter.POSITIONAL_OR_KEYWORD:
-        if default:
+        if p.default is not inspect._empty:
             args.append('--' + name)
             accept = '='
         else:
