@@ -15,7 +15,6 @@ Two examples are given in the root directory of this project.
     import sys
 
 
-    @wise
     def add(left: int, right: int):
         """
         add up two numbers.
@@ -25,7 +24,7 @@ Two examples are given in the root directory of this project.
 
 
     if __name__ == '__main__':
-        add(sys.argv[1:])
+        wise(add)()
 
 .. image:: https://raw.githubusercontent.com/Xython/wisepy2/master/example-add2.png
     :width: 90%
