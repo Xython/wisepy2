@@ -12,7 +12,6 @@ Two examples are given in the root directory of this project.
 .. code-block :: Python
 
     from wisepy2 import *
-    import sys
 
 
     def add(left: int, right: int):
