@@ -21,13 +21,38 @@ Two examples are given in the root directory of this project.
         print(left + right)
         return 0
 
-
     if __name__ == '__main__':
         wise(add)()
 
 .. image:: https://raw.githubusercontent.com/Xython/wisepy2/master/example-add2.png
     :width: 90%
     :align: center
+
+
+.. code-block :: Python
+
+    @wise
+    class Cmd:
+        class Int:
+            @staticmethod
+            def add(a: int, b: int):
+                print(a + b)
+
+        class Str:
+            @staticmethod
+            def concat(a: str, b: str):
+                print(a + b)
+
+        @staticmethod
+        def repeat(a: str, b: int):
+            print(a * b)
+
+    if __name__ == '__main__':
+        wise(add)()
+
+    shell> python xxx.py Int add 1 2 # 3
+    shell> python xxx.py Str concat 1 2 # 12
+    shell> python xxx.py repeat 1 2 # 11
 
 
 Usage
