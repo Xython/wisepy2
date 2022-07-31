@@ -273,9 +273,14 @@ def _wise_impl(fn):
 
 
 if typing.TYPE_CHECKING:
-    def wise(x):
+    R_co = typing.TypeVar('R_co', covariant=True)
+    class _ArgumentProcessor(typing.Protocol[R_co]):
+        def __call__(self, args: list[str] | None = None) -> R_co: 
+            ...
+    R = typing.TypeVar('R')
+    def wise(f: typing.Callable[..., R]) -> _ArgumentProcessor[R]:
         """convert a Python function into a command line
         """
-        return x
+        ...
 else:
     wise = _wise_impl
