@@ -6,6 +6,11 @@ from abc import ABC, abstractmethod
 
 __all__ = ['wise']
 
+def _prepare_type_hints(f):
+    if hasattr(typing, 'get_type_hints'):
+        f.__annotations__ = typing.get_type_hints(f)
+    
+
 def process_empty(x):
     if x is inspect._empty:
         return None
@@ -247,6 +252,7 @@ def _wise_impl(fn):
     if isinstance(fn, type):
         handle = _wise_wrap_class(fn, main_construction)
     elif isinstance(fn, types.FunctionType):
+        _prepare_type_hints(fn)
         handle = _wise_wrap_func(fn, main_construction)
     else:
         raise TypeError(type(fn))
