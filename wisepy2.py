@@ -254,7 +254,11 @@ def _wise_impl(fn):
     parser = main_construction.parser
 
     def parse_arg(argv=None):
-        if argv:
+        if argv is not None:
+            assert isinstance(argv, list), (
+                "a str input is not supported!"
+                "Transform your input to a correct list using `import shlex;shlex.split(string_argv)`"
+            )
             cmd_args = parser.parse_args(argv)
         else:
             cmd_args = parser.parse_args()
