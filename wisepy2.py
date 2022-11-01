@@ -4,12 +4,13 @@ import argparse
 import typing
 from abc import ABC, abstractmethod
 
-__all__ = ['wise']
+__all__ = ["wise"]
+
 
 def _prepare_type_hints(f):
-    if hasattr(typing, 'get_type_hints'):
+    if hasattr(typing, "get_type_hints"):
         f.__annotations__ = typing.get_type_hints(f)
-    
+
 
 def process_empty(x):
     if x is inspect._empty:
@@ -18,20 +19,20 @@ def process_empty(x):
 
 
 class _Colored:
-    Red = '\033[31m'
-    Green = '\033[32m'
-    Yellow = '\033[33m'
-    Blue = '\033[34m'
-    Purple = '\033[35m'
-    LightBlue = '\033[36m'
-    Clear = '\033[39m'
-    Purple2 = '\033[95m'
+    Red = "\033[31m"
+    Green = "\033[32m"
+    Yellow = "\033[33m"
+    Blue = "\033[34m"
+    Purple = "\033[35m"
+    LightBlue = "\033[36m"
+    Clear = "\033[39m"
+    Purple2 = "\033[95m"
 
 
 def _wrap_color(colored: str):
-    def func(*strings: str, sep=''):
-        strings = map(lambda each: '{}{}'.format(colored, each), strings) # type: ignore
-        return '{}{}'.format(sep.join(strings), _Colored.Clear)
+    def func(*strings: str, sep=""):
+        strings = map(lambda each: "{}{}".format(colored, each), strings)  # type: ignore
+        return "{}{}".format(sep.join(strings), _Colored.Clear)
 
     return func
 
@@ -51,9 +52,9 @@ TYPE_COLOR = Blue
 DEFAULT_COLOR = Green
 INVOC_COLOR = LightBlue
 
+
 class HelpFormatter(argparse.RawTextHelpFormatter):
-    """The formatter is from https://github.com/vanyakosmos/argser
-    """
+    """The formatter is from https://github.com/vanyakosmos/argser"""
 
     def __init__(self, prog, indent_increment=4, max_help_position=32, width=120):
         super().__init__(prog, indent_increment, max_help_position, width)
@@ -64,18 +65,18 @@ class HelpFormatter(argparse.RawTextHelpFormatter):
 
     def add_usage(self, usage, actions, groups, prefix=None):
         if prefix is None:
-            prefix = USAGE_COLOR('usage') + ': '
+            prefix = USAGE_COLOR("usage") + ": "
         return super().add_usage(usage, actions, groups, prefix)
 
     def _get_type(self, action):
-        meta = getattr(action, '__meta', None)
+        meta = getattr(action, "__meta", None)
         if not meta:
             return
         if isinstance(meta.type, type):
-            typ = getattr(meta.type, '__name__', '-')
+            typ = getattr(meta.type, "__name__", "-")
         else:
             typ = str(meta.type)
-            typ = typ.replace('typing.', '')  # typing.List[str] -> List[str]
+            typ = typ.replace("typing.", "")  # typing.List[str] -> List[str]
         return str(typ)
 
     def format_default_help(self, action):
@@ -112,52 +113,59 @@ class HelpFormatter(argparse.RawTextHelpFormatter):
         return text
 
 
-def _describe_parameter(p: inspect.Parameter):
+def _describe_parameter(p: inspect.Parameter, parser: argparse.ArgumentParser):
     kind = p.kind
     name = p.name
     anno = process_empty(p.annotation)
     default = process_empty(p.default)
 
-    args = []
-    kwargs = {}
-    accept = None
-    store_bool = False
+    common_kwargs = {}
+    if anno is not None:
+        common_kwargs["help"] = Blue(str(anno))
 
-    if anno:
-        if anno is bool and isinstance(default, bool):
-            store_bool = True
-            kwargs['action'] = 'store_false' if default else 'store_true'
-            anno = "bool"
-        elif isinstance(anno, type):
-            kwargs['type'] = anno
-            anno = anno.__name__
-        kwargs['help'] = Blue(str(anno))
+    if anno and anno is bool and isinstance(default, bool):
+        kwargs = common_kwargs.copy()
+        kwargs["action"] = "store_false" if default else "store_true"
+        parser.add_argument("--" + name, **kwargs)
+        return "="
 
-    if not store_bool and p.default is not inspect._empty:
-        kwargs['default'] = default
+    if isinstance(anno, type):
+        common_kwargs["type"] = anno
+
+    if p.default is not inspect._empty:
+        common_kwargs["default"] = default
 
     if kind is inspect.Parameter.POSITIONAL_ONLY:
-        args.append(name)
-        accept = '@'
+        parser.add_argument(name, **common_kwargs)
+
+        return "@"
 
     elif kind is inspect.Parameter.VAR_POSITIONAL:
-        args.append(name)
-        kwargs['nargs'] = '*'
-        accept = '*'
-    elif kind is inspect.Parameter.KEYWORD_ONLY:
-        args.append('--' + name)
-        accept = '='
-    elif kind is inspect.Parameter.POSITIONAL_OR_KEYWORD:
-        if p.default is not inspect._empty:
-            args.append('--' + name)
-            accept = '='
-        else:
-            args.append(name)
-            accept = '@'
-    elif kind is inspect.Parameter.VAR_KEYWORD:
-        raise NotImplemented
 
-    return name, accept, args, kwargs
+        parser.add_argument(name, nargs="*", **common_kwargs)
+        return "*"
+
+    elif kind is inspect.Parameter.KEYWORD_ONLY:
+        kwargs = common_kwargs.copy()
+        kwargs["required"] = p.default is inspect._empty
+        parser.add_argument("--" + name, **kwargs)
+        return "="
+
+    elif kind is inspect.Parameter.POSITIONAL_OR_KEYWORD:
+
+        pos_kwargs = common_kwargs.copy()
+        pos_kwargs["nargs"] = "?"
+        pos_kwargs["metavar"] = name
+        t = typing.cast(type, pos_kwargs.get("type", str))
+        pos_kwargs["type"] = str
+        pos_kwargs["default"] = argparse.SUPPRESS
+        parser.add_argument(name, **pos_kwargs)
+
+        kw_kwargs = common_kwargs.copy()
+        parser.add_argument("--" + name, **kw_kwargs)
+        return t
+    else:
+        raise NotImplementedError("unknown kind {}".format(kind))
 
 
 class CommandConstruction(ABC):
@@ -168,48 +176,46 @@ class CommandConstruction(ABC):
 
 class MainConstruction(CommandConstruction):
     def __init__(self):
-        self.parser: 'argparse.ArgumentParser' = None  # type: ignore
+        self.parser: "argparse.ArgumentParser" = None  # type: ignore
 
     def construct(self, prog: str, description: str):
         self.parser = argparse.ArgumentParser(
             prog=prog,
             description=Green(description),
             add_help=True,
-            formatter_class=HelpFormatter
+            formatter_class=HelpFormatter,
         )
         return self.parser
 
 
 class SubConstruction(CommandConstruction):
-    def __init__(self, sub_parsers: 'argparse._SubParsersAction'):
+    def __init__(self, sub_parsers: "argparse._SubParsersAction"):
         self.sub_parsers = sub_parsers
 
     def construct(self, prog: str, description: str):
         p = self.sub_parsers.add_parser(
-            name=prog,
-            prog=prog,
-            add_help=True,
-            description=Green(description)
+            name=prog, prog=prog, add_help=True, description=Green(description)
         )
         return p
 
 
 def _wise_wrap_class(cls: type, ctor: CommandConstruction):
-    parser = ctor.construct(
-        prog=cls.__name__,
-        description=cls.__doc__ or ""
-    )
+    parser = ctor.construct(prog=cls.__name__, description=cls.__doc__ or "")
     dest = "SUB-OF " + cls.__name__
-    subparsers: 'argparse._SubParsersAction' = parser.add_subparsers(dest=dest)
+    subparsers: "argparse._SubParsersAction" = parser.add_subparsers(dest=dest)
     parser_funcs = {}
     for field, value in cls.__dict__.items():
-        if not field.startswith('__'):
-            if isinstance(value, staticmethod) and isinstance(value.__func__, types.FunctionType):
+        if not field.startswith("__"):
+            if isinstance(value, staticmethod) and isinstance(
+                value.__func__, types.FunctionType
+            ):
                 parser_funcs[field] = _wise_wrap_func(
-                    value.__func__, SubConstruction(subparsers))
+                    value.__func__, SubConstruction(subparsers)
+                )
             elif isinstance(value, type):
                 parser_funcs[field] = _wise_wrap_class(
-                    value, SubConstruction(subparsers))
+                    value, SubConstruction(subparsers)
+                )
 
     def parse_arg(cmd_args: argparse.Namespace):
         field = getattr(cmd_args, dest, None)
@@ -221,33 +227,50 @@ def _wise_wrap_class(cls: type, ctor: CommandConstruction):
 
 def _wise_wrap_func(fn: types.FunctionType, ctor: CommandConstruction):
     sig = inspect.Signature.from_callable(fn)
-    parser: 'argparse.ArgumentParser' = ctor.construct(
-        prog=fn.__name__,
-        description=fn.__doc__ or "")
+    parser: "argparse.ArgumentParser" = ctor.construct(
+        prog=fn.__name__, description=fn.__doc__ or ""
+    )
     actions = []
-    for name, accept, args, kwargs in map(_describe_parameter,
-                                          sig.parameters.values()):
-        actions.append((name, accept))
-        parser.add_argument(*args, **kwargs)
+    for p in sig.parameters.values():
+        accept = _describe_parameter(p, parser)
+        actions.append((p.name, accept))
 
     def parse_arg(cmd_args: argparse.Namespace):
         args = []
         kwargs = {}
         for name, accept in actions:
             arg = getattr(cmd_args, name)
-            if accept == '=':
+            if accept == "=":
+                arg = getattr(cmd_args, name)
                 kwargs[name] = arg
-            elif accept == '*':
+            elif accept == "*":
+                arg = getattr(cmd_args, name)
                 args.extend(arg)
-            elif accept == '@':
+            elif accept == "@":
+                arg = getattr(cmd_args, name)
                 args.append(arg)
+            else:
+                if not isinstance(arg, accept):
+                    try:
+                        arg = accept(arg)
+                    except:
+                        import sys
+
+                        sys.exit(
+                            Red(
+                                "error: argument --{} should be {}, but got {}".format(
+                                    name, accept, arg
+                                )
+                            )
+                        )
+                kwargs[name] = arg
         return fn(*args, **kwargs)
+
     return parse_arg
 
 
 def _wise_impl(fn):
-    """convert a Python function into a command line
-    """
+    """convert a Python function into a command line"""
     main_construction = MainConstruction()
     if isinstance(fn, type):
         handle = _wise_wrap_class(fn, main_construction)
@@ -269,18 +292,22 @@ def _wise_impl(fn):
         else:
             cmd_args = parser.parse_args()
         return handle(cmd_args)
+
     return parse_arg
 
 
 if typing.TYPE_CHECKING:
-    R_co = typing.TypeVar('R_co', covariant=True)
+    R_co = typing.TypeVar("R_co", covariant=True)
+
     class _ArgumentProcessor(typing.Protocol[R_co]):
-        def __call__(self, args: list[str] | None = None) -> R_co: 
+        def __call__(self, args: list[str] | None = None) -> R_co:
             ...
-    R = typing.TypeVar('R')
+
+    R = typing.TypeVar("R")
+
     def wise(f: typing.Callable[..., R]) -> _ArgumentProcessor[R]:
-        """convert a Python function into a command line
-        """
+        """convert a Python function into a command line"""
         ...
+
 else:
     wise = _wise_impl

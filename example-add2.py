@@ -1,6 +1,7 @@
 from wisepy2 import *
 import sys
 
+
 def add(left: int, right: int):
     """
     add up two numbers.
@@ -9,5 +10,5 @@ def add(left: int, right: int):
     return 0
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     sys.exit(wise(add)())

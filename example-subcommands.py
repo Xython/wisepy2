@@ -13,6 +13,7 @@ class Main:
     asdsa sfadgx  shfxssareijap
     t rojifa erhgiasipgupw
     """
+
     @staticmethod
     def add(a: int, b: float):
         """
