@@ -113,10 +113,12 @@ class HelpFormatter(argparse.RawTextHelpFormatter):
         return text
 
 
-def _describe_parameter(p: inspect.Parameter, parser: argparse.ArgumentParser):
+def _describe_parameter(
+    p: inspect.Parameter, hints: dict, parser: argparse.ArgumentParser
+):
     kind = p.kind
     name = p.name
-    anno = process_empty(p.annotation)
+    anno = hints.get(name)
     default = process_empty(p.default)
 
     common_kwargs = {}
@@ -226,13 +228,15 @@ def _wise_wrap_class(cls: type, ctor: CommandConstruction):
 
 
 def _wise_wrap_func(fn: types.FunctionType, ctor: CommandConstruction):
+    _prepare_type_hints(fn)
     sig = inspect.Signature.from_callable(fn)
     parser: "argparse.ArgumentParser" = ctor.construct(
         prog=fn.__name__, description=fn.__doc__ or ""
     )
     actions = []
+    hints = getattr(fn, "__annotations__", {})
     for p in sig.parameters.values():
-        accept = _describe_parameter(p, parser)
+        accept = _describe_parameter(p, hints, parser)
         actions.append((p.name, accept))
 
     def parse_arg(cmd_args: argparse.Namespace):
